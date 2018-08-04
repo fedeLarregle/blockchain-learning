@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Blockchain {
 
+    public static final int DIFFICULTY = 5;
     private final List<Block> blockchain;
-
 
     public Blockchain() {
         blockchain = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Blockchain {
     }
 
     private void genesisBlock() {
-        blockchain.add(new Block("Genesis Block", null));
+        blockchain.add(new Block("Genesis Block", null, DIFFICULTY));
     }
 
     public Block getLatestBlock() { return blockchain.get(blockchain.size() - 1); }
@@ -25,7 +25,7 @@ public class Blockchain {
         blockchain.add(block);
     }
 
-    public boolean isValidBlock() {
+    public boolean validate() {
         for (int i = 1; i < blockchain.size(); i++) {
             Block currentBlock = blockchain.get(i);
             Block previousBlock = blockchain.get(i - 1);

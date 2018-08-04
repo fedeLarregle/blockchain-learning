@@ -31,4 +31,12 @@ public class Strings {
 
         return result.toString();
     }
+
+    public static String repeat(String s, int n) {
+        StringBuilder result = new StringBuilder(s.length() * n);
+        for (int i = 0; i < n; i++)
+            result.append(s);
+
+        return result.toString();
+    }
 }
